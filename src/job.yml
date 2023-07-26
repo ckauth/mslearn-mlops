@@ -7,9 +7,9 @@ command: >-
 inputs:
   training_data: 
     type: uri_file
-    path: azureml:diabetes-dev-folder:5
+    path: azureml:diabetes-dev-folder:1
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
-compute: azureml:standard-cpu
+compute: azureml:cluster-cpu
 experiment_name: sklearn-diabetes-training
 description: Train a scikit-learn Logistic Regression on the Diabetes dataset.
