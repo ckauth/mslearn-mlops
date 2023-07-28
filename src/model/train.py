@@ -3,6 +3,7 @@
 import argparse
 import mlflow
 
+import os
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
@@ -24,15 +25,15 @@ def main(args):
 
 
 def get_csvs_df(path):
-    return pd.read_csv(path)
-    """
     if not os.path.exists(path):
-        raise RuntimeError(f"Cannot use non-existent path provided: {path}")
+        raise RuntimeError(f"Cannot use non-existent file provided: {path}")
+    """
     csv_files = glob.glob(f"{path}/*.csv")
     if not csv_files:
         raise RuntimeError(f"No CSV files found in provided data path: {path}")
-    return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
     """
+    return pd.read_csv(path)
+    # return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
 
 
 # add function to split data
