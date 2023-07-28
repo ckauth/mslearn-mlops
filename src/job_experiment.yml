@@ -12,4 +12,4 @@ inputs:
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 compute: azureml:cluster-cpu
 experiment_name: sklearn-diabetes-training
-description: Train a scikit-learn Logistic Regression on the Diabetes dataset.
+description: Train a scikit-learn Logistic Regression on the Diabetes development dataset.
