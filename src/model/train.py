@@ -1,14 +1,13 @@
 # Import libraries
 
 import argparse
-import glob
-import os
-
 import mlflow
 
+import os
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
+
 
 # define functions
 def main(args):
@@ -26,20 +25,22 @@ def main(args):
 
 
 def get_csvs_df(path):
-    return pd.read_csv(path)
-    """
     if not os.path.exists(path):
-        raise RuntimeError(f"Cannot use non-existent path provided: {path}")
+        raise RuntimeError(f"Cannot use non-existent file provided: {path}")
+    """
     csv_files = glob.glob(f"{path}/*.csv")
     if not csv_files:
         raise RuntimeError(f"No CSV files found in provided data path: {path}")
-    return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
     """
+    return pd.read_csv(path)
+    # return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
 
 
 # add function to split data
 def split_data(df):
-    X = df[['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','SerumInsulin','BMI','DiabetesPedigree','Age']].values
+    X = df[['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure',
+            'TricepsThickness', 'SerumInsulin', 'BMI', 'DiabetesPedigree',
+            'Age']].values
     y = df['Diabetic'].values
     return train_test_split(X, y, test_size=0.30, random_state=0)
 
@@ -64,6 +65,7 @@ def parse_args():
 
     # return args
     return args
+
 
 # run script
 if __name__ == "__main__":

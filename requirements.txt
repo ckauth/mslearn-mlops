@@ -4,3 +4,5 @@ pandas==1.4.3
 scikit-learn==1.1.1
 matplotlib
 jupyter
+flake8
+pytest
